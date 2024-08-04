@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dajuvai Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px; /* Add padding to avoid content touching the edges */
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu-container {
+            width: 80%;
+            max-width: 800px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-y: auto; /* Ensure vertical scroll if needed */
+            max-height: calc(100vh - 40px); /* Fit within the view height minus padding */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .menu-section {
+            margin-bottom: 30px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .menu-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .item-details {
+            flex-grow: 1;
+        }
+
+        .item-details h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .item-details p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 12px;
+            margin-top: 10px;
+            color: #fff;
+            background-color: #f39c12;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #e67e22;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <h1>Vaishnab Menu</h1>
+        <div class="menu-section">
+            <h2>Appetizers</h2>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/100" alt="Samosa">
+                <div class="item-details">
+                    <h3>Aloo Chop</h3>
+                    <p> A spiced potato croquette/fritter that is irresistibly crispy on the outside and moist on the inside.</p>
+                    <p class="price">Rs 20 </p>
+
+                    <form action="{% url 'order' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="food_name" value="Aloo Chop">
+                        <input type="hidden" name="food_price" value="Rs 20">
+                        <button type="submit" class="btn">Order</button>
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/100" alt="Jerry Puri">
+                <div class="item-details">
+                    <h3>Spinach Pakora</h3>
+                    <p>Fried to golden perfection, these bite-sized treats are crispy on the outside, tender on the inside, and simply irresistible when dipped in chutneys. The spinach leaves lend a wonderful earthiness to the pakoras, creating a perfect harmony of flavours.</p>
+                    <p class="price">Rs 20</p>
+                    <form action="{% url 'order' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="food_name" value="Spinach Pakora">
+                        <input type="hidden" name="food_price" value="Rs 20">
+                        <button type="submit" class="btn">Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="menu-section">
+            <h2>Main Courses</h2>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/100" alt="Momo">
+                <div class="item-details">
+                    <h3>Dhindho</h3>
+                    <p>It is actually a thick porridge prepared by boiling stone-ground cornmeal, buckwheat flour, and millet flour with salt in water. It is the staple diet in rural areas and is eaten with butter, vegetable curries, pickles, buttermilk, and yogurt.</p>
+                    <p class="price">Rs 399</p>
+
+                    <form action="{% url 'order' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="food_name" value="Dhindho">
+                        <input type="hidden" name="food_price" value="Rs 399">
+                        <button type="submit" class="btn">Order</button>
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/100" alt="ChowMien">
+                <div class="item-details">
+                    <h3>Dal Bhat</h3>
+                    <p>Dal Bhat is a staple meal comprising lentil soup (dal) paired with steamed rice (bhat). It's often accompanied by vegetables, pickles, and sometimes, achar (spicy sauce).</p>
+                    <p class="price">Rs 399</p>
+
+                    <form action="{% url 'order' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="food_name" value="Dal Bhat">
+                        <input type="hidden" name="food_price" value="Rs 399">
+                        <button type="submit" class="btn">Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="menu-section">
+            <h2>Desserts</h2>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/100" alt="Chocolate Cake">
+                <div class="item-details">
+                    <h3>Cakes and Cupcakes</h3>
+                    <p>Butter cakes are made from creamed butter, sugar, eggs, and flour.</p>
+                    <p class="price">Rs 750</p>
+
+                    <form action="{% url 'order' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="food_name" value="Cakes and Cupcakes">
+                        <input type="hidden" name="food_price" value="Rs 750">
+                        <button type="submit" class="btn">Order</button>
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/100" alt="Jerri">
+                <div class="item-details">
+                    <h3>Banana Pudding</h3>
+                    <p>The layered mix of sweet banana pudding, fresh bananas, Nilla wafer cookies and whipped cream is a fluffy and creamy delight fresh from the icebox.</p>
+                    <p class="price">Rs 150</p>
+                    <form action="{% url 'order' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="food_name" value="Banana Pudding">
+                        <input type="hidden" name="food_price" value="Rs 150">
+                        <button type="submit" class="btn">Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
